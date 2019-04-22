@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="Content-Security-Policy" content="
+                            default-src * data: blob: ws: wss: gap://ready file://*;
+                            style-src * 'unsafe-inline';
+                            script-src * 'unsafe-inline' 'unsafe-eval';
+                            connect-src * ws: wss:;">
+
+
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width height=device-height" />
+
+    <title>Areka!</title>
+
+
+    <!--TESTER SI L'UTILISATEUR EST DEJA CONNECTE OU NON-->
+    <script type="text/javascript" src="js/isLoggedIn.js"></script>
+
+    <!--SI PAS DE REDIRECTION ALORS ON CHARGE LES STYLES-->
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+
+</head>
+<body>
+
+<div id="tpl-login" class="page-wrapper page-login">
+
+    <div id="wrapper">
+
+        <div class="page-login__bg-top">
+
+            <img src="img/accueil/cloud-left.svg" alt="image illustration areka" class="illu illu__cloud-left">
+            <img src="img/accueil/stroke-cloud-left.svg" alt="image illustration areka" class="illu illu__cloud-left-stroke js-gyro-move">
+
+            <img src="img/accueil/cloud-right.svg" alt="image illustration areka" class="illu illu__cloud-right">
+            <img src="img/accueil/stroke-cloud-right.svg" alt="image illustration areka" class="illu illu__cloud-right-stroke js-gyro-move">
+
+        </div>
+
+        <div class="page-login__logo">
+            <img src="img/logo.svg" alt="logo Areca">
+        </div>
+
+        <div class="page-login__connect block-connect">
+
+            <div class="block-connect__container-form">
+
+                <form action="connect.php" id="form-connect" class="block-form">
+
+                    <div class="block-form__error remove-load-page">
+                        <p>Merci de remplir tous les champs</p>
+                    </div>
+
+                    <input class="block-form__item remove-load-page" type="text" name="user" placeholder="Votre e-mail">
+
+                    <input class="block-form__item remove-load-page" type="password" name="password" placeholder="Votre mot de passe">
+
+                    <input class="block-form__item block-form__item--submit remove-load-page" type="submit" value="Connexion">
+
+                </form>
+
+                <form action="register.php" id="form-register" class="block-form">
+
+                    <div class="block-form__error remove-load-page">
+                        <p>Merci de remplir tous les champs</p>
+                    </div>
+
+                    <input class="block-form__item remove-load-page" type="text" name="lastname" placeholder="Votre nom">
+
+                    <input class="block-form__item remove-load-page" type="text" name="firstname" placeholder="Votre prénom">
+
+                    <input class="block-form__item remove-load-page" type="text" name="email" placeholder="Votre e-mail">
+
+                    <input class="block-form__item remove-load-page" type="text" name="birth" placeholder="Votre date de naissance">
+
+                    <input class="block-form__item remove-load-page" type="password" name="password" placeholder="Votre mot de passe">
+
+                    <input class="block-form__item remove-load-page" type="text" name="sexe" placeholder="Votre genre">
+
+                    <input class="block-form__item remove-load-page" type="text" name="phone" placeholder="Votre numéro de téléphone">
+
+                    <input class="block-form__item remove-load-page" type="text" name="street" placeholder="Votre rue">
+
+                    <input class="block-form__item remove-load-page" type="text" name="postam" placeholder="Votre code postal">
+
+                    <input class="block-form__item remove-load-page" type="text" name="city" placeholder="Votre code ville">
+
+                    <input class="block-form__item remove-load-page" type="text" name="country" placeholder="Votre pays">
+
+
+                    <input class="block-form__item block-form__item--submit remove-load-page" type="submit" id="register-submit" value="Inscription">
+
+
+                </form>
+
+            </div>
+
+
+            <nav class="block-connect__menu-container">
+
+                <ul class="menu-connect">
+
+                    <li class="block-connect__menu-item remove-load-page" data-form="form-connect">J'ai déjà un compte</li>
+                    <li class="block-connect__menu-item remove-load-page" data-form="form-register">Vous n'avez pas de compte</li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+        <div class="page-login__bg-bot">
+
+            <img src="img/accueil/bg.png" class="illu illu__shape" alt="image illustration areka">
+            <img src="img/accueil/man.svg" class="illu illu__man js-gyro-move" alt="image illustration areka">
+            <img src="img/accueil/woman.svg" class="illu illu__woman js-gyro-move" alt="image illustration areka">
+
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="js/lib.min.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+
+
+</body>
+</html>

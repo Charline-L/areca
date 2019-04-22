@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+
+    <meta charset="UTF-8"/>
+
+    <meta http-equiv="Content-Security-Policy" content="
+                            default-src * data: blob: ws: wss: gap://ready file://*;
+                            style-src * 'unsafe-inline';
+                            script-src * 'unsafe-inline' 'unsafe-eval';
+                            connect-src * ws: wss:;"/>
+
+
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width height=device-height" />
+
+    <title>Areka!</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.min.css"/>
+
+</head>
+<body>
+
+<div id="transition"></div>
+
+<div id="tpl-main" class="page-wrapper page-main">
+
+
+    <div id="wrapper">
+
+        <!--MENU BOTTOM-->
+        <div class="page-main__menu main-menu">
+
+            <div class="main-menu__item main-menu__item--scan">
+                <img src="img/main/scan.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+            <div class="main-menu__item main-menu__item--flower selected">
+                <img src="img/main/flower.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+            <div class="main-menu__item main-menu__item--map">
+                <img src="img/main/commercants.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+            <div class="main-menu__arrow">
+                <img src="img/main/arrow.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+        </div>
+
+
+        <!--MENU TOP-->
+        <div class="page-main__links-top links-top">
+
+            <div class="links-top__item links-top__item--profil" id="button-reset">
+                <img src="img/main/profil.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+            <div class="links-top__item links-top__item--logo">
+                <img src="img/main/areka.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+            <div class="links-top__item links-top__item--about" id="burger-icon">
+                <img src="img/main/burger.svg" alt="image illustration areka" class="svg"/>
+            </div>
+
+        </div>
+
+
+
+        <!--SCREEN-->
+        <div class="page-main__screen-container">
+
+            <!--ECRAN SCAN-->
+            <div class="page-main__screen screen-scanner">
+
+                <div class="screen-scanner__rect-container">
+
+                    <img src="img/main/scan-rect.svg" alt="image illustration areka" class="screen-scanner__rect svg"/>
+
+                </div>
+
+                <div class="screen-scanner__helper">
+
+                    <p>Scannez le QR code sur votre ticket</p>
+
+                </div>
+
+            </div>
+
+
+            <!--ECRAN FLEUR-->
+            <div class="page-main__screen screen-flower">
+
+                <div class="screen-flower__top">
+
+                    <div class="screen-flower__bg">
+                        <img src="img/main/bg.svg" alt="image illustration areka"/>
+                        <img src="img/main/bg-stroke.svg" alt="image illustration areka" class="js-gyro-move"/>
+                    </div>
+
+                    <div class="screen-flower__progress progress">
+
+                        <div class="progress__top">
+
+                            <div class="progress__bar">
+
+                                <div class="progress__level" data-xp="10xp">
+                                    <div class="progress__to-animate"></div>
+                                </div>
+
+                                <div class="progress__level" data-xp="20xp">
+                                    <div class="progress__to-animate"></div>
+                                </div>
+
+                                <div class="progress__level" data-xp="30xp">
+                                    <div class="progress__to-animate"></div>
+                                </div>
+
+                                <div class="progress__level" data-xp="40xp">
+                                    <div class="progress__to-animate"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="progress__xp-container">
+
+                                <div class="progress__xp">
+                                    <p>10px</p>
+                                </div>
+
+                                <div class="progress__xp">
+                                    <p>20px</p>
+                                </div>
+
+                                <div class="progress__xp">
+                                    <p>30xp</p>
+                                </div>
+
+                                <div class="progress__xp">
+                                    <p>40xp</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="progress__bottom">
+
+                            <div class="progress__info">
+
+                                <p class="value"><span class="to-update days">2</span> jours</p>
+                                <p class="title">âge</p>
+
+                            </div>
+
+                            <div class="progress__info">
+
+                                <p class="value"><span class="to-update update-grams">0.5</span> kg</p>
+                                <p class="title">papier déposé</p>
+
+                            </div>
+
+                            <div class="progress__info">
+
+                                <p class="value"><span class="to-update size">0</span> cm</p>
+                                <p class="title">taille</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="screen-flower__animation" id="flower">
+                        <img src="img/animation/etat1.svg" alt="image illustration areka"/>
+                    </div>
+
+                </div>
+
+                <div class="screen-flower__scroll">
+
+
+                    <div class="screen-flower__benefits-me benefits-me">
+
+                        <div class="benefits-me__title">
+
+                            <p class="left">Mon activité</p>
+                            <p class="right">2018</p>
+
+                        </div>
+
+                        <div class="benefits-me__graphic">
+
+                            <img src="img/main/circle.svg" alt="image illustration areka" class="svg benefits-me__illu--circle benefits-me__graphic--circle"/>
+
+                            <svg version="1.1"
+                             class="benefits-me__illu--levels benefits-me__graphic--levels"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             x="0px" y="0px" width="128px" height="93.8px" viewBox="0 0 128 93.8" style="enable-background:new 0 0 128 93.8;"
+                             xml:space="preserve">
+                            <path class="st0" d="M120.7,87.8c1.3,0.5,1.9,2,1.3,3.3c-0.2,0.5-0.5,1-0.7,1.5c-0.6,1.2-2.1,1.7-3.4,1l0,0c-1.2-0.7-1.6-2.2-1-3.4
+                                c0.2-0.3,0.3-0.7,0.5-1C118,87.9,119.5,87.3,120.7,87.8L120.7,87.8z"/>
+                            <path class="st0" d="M124.6,74.6c1.4,0.2,2.3,1.5,2,2.9c-0.1,0.5-0.2,1.1-0.4,1.6c-0.3,1.3-1.7,2.1-3,1.7l0,0
+                                c-1.3-0.4-2.1-1.8-1.8-3.1c0.1-0.4,0.2-0.7,0.2-1.1C121.9,75.2,123.2,74.3,124.6,74.6L124.6,74.6z"/>
+                            <path class="st0" d="M125.4,60.8c1.4-0.1,2.6,1,2.6,2.4c0,0.3,0,0.5,0,0.8s0,0.5,0,0.8c0,1.4-1.2,2.4-2.6,2.4l0,0
+                                c-1.4-0.1-2.4-1.2-2.4-2.6c0-0.2,0-0.4,0-0.6c0-0.2,0-0.4,0-0.6C123,62.1,124,60.9,125.4,60.8L125.4,60.8z"/>
+                            <path class="st0" d="M123.2,47.2c1.3-0.4,2.7,0.4,3,1.7c0.1,0.5,0.2,1.1,0.4,1.6c0.3,1.4-0.6,2.6-2,2.9l0,0c-1.4,0.2-2.6-0.7-2.9-2
+                                c-0.1-0.4-0.2-0.7-0.2-1.1C121.1,49,121.9,47.6,123.2,47.2L123.2,47.2z"/>
+                            <path class="st0" d="M118,34.5c1.2-0.7,2.7-0.2,3.4,1c0.2,0.5,0.5,1,0.7,1.5c0.6,1.3,0,2.7-1.3,3.3l0,0c-1.3,0.5-2.7-0.1-3.3-1.3
+                                c-0.2-0.3-0.3-0.7-0.5-1C116.3,36.7,116.8,35.1,118,34.5L118,34.5z"/>
+                            <path class="st0" d="M110,23.2c1-0.9,2.6-0.8,3.5,0.2c0.3,0.4,0.7,0.8,1,1.3c0.8,1.1,0.6,2.7-0.5,3.5l0,0c-1.1,0.8-2.7,0.5-3.5-0.5
+                                c-0.2-0.3-0.5-0.6-0.7-0.9C108.9,25.7,109,24.1,110,23.2L110,23.2z"/>
+                            <path class="st0" d="M99.8,14c0.8-1.1,2.4-1.4,3.5-0.5c0.4,0.3,0.9,0.7,1.3,1c1.1,0.9,1.2,2.5,0.2,3.5l0,0c-0.9,1-2.5,1.1-3.6,0.3
+                                c-0.3-0.2-0.6-0.5-0.9-0.7C99.3,16.7,99,15.1,99.8,14L99.8,14z"/>
+                            <path class="st0" d="M87.8,7.3C88.3,6,89.8,5.4,91,6c0.5,0.2,1,0.5,1.5,0.7c1.2,0.6,1.7,2.1,1,3.4l0,0c-0.7,1.2-2.2,1.6-3.4,1
+                                c-0.3-0.2-0.7-0.3-1-0.5C87.9,10,87.3,8.5,87.8,7.3L87.8,7.3z"/>
+                            <path class="st0" d="M74.6,3.4c0.2-1.4,1.5-2.3,2.9-2C78,1.5,78.5,1.7,79,1.8c1.3,0.3,2.1,1.7,1.7,3l0,0c-0.4,1.3-1.8,2.1-3.1,1.8
+                                c-0.4-0.1-0.7-0.2-1.1-0.2C75.2,6.1,74.3,4.8,74.6,3.4L74.6,3.4z"/>
+                            <path class="st0" d="M60.8,2.6c-0.1-1.4,1-2.6,2.4-2.6c0.3,0,0.5,0,0.8,0s0.5,0,0.8,0c1.4,0,2.4,1.2,2.4,2.6l0,0
+                                C67.1,4,65.9,5,64.6,5c-0.2,0-0.4,0-0.6,0c-0.2,0-0.4,0-0.6,0C62.1,5,60.9,4,60.8,2.6L60.8,2.6z"/>
+                            <path class="st0" d="M47.2,4.8c-0.4-1.3,0.4-2.7,1.7-3c0.5-0.1,1.1-0.2,1.6-0.4c1.4-0.3,2.6,0.6,2.9,2l0,0c0.2,1.4-0.7,2.6-2,2.9
+                                c-0.4,0.1-0.7,0.2-1.1,0.2C49,6.9,47.6,6.1,47.2,4.8L47.2,4.8z"/>
+                            <path class="st0" d="M34.5,10c-0.7-1.2-0.2-2.7,1-3.4C36,6.4,36.5,6.2,37,6c1.3-0.6,2.7,0,3.3,1.3l0,0c0.5,1.3-0.1,2.7-1.3,3.3
+                                c-0.3,0.2-0.7,0.3-1,0.5C36.7,11.7,35.1,11.2,34.5,10L34.5,10z"/>
+                            <path class="st0" d="M23.2,18c-0.9-1-0.8-2.6,0.2-3.5c0.4-0.3,0.8-0.7,1.3-1c1.1-0.8,2.7-0.6,3.5,0.5l0,0c0.8,1.1,0.5,2.7-0.5,3.5
+                                c-0.3,0.2-0.6,0.5-0.9,0.7C25.7,19.1,24.1,19,23.2,18L23.2,18z"/>
+                            <path class="st0" d="M14,28.2c-1.1-0.8-1.4-2.4-0.5-3.5c0.3-0.4,0.7-0.9,1-1.3c0.9-1.1,2.5-1.2,3.5-0.2l0,0c1,0.9,1.1,2.5,0.3,3.6
+                                c-0.2,0.3-0.5,0.6-0.7,0.9C16.7,28.7,15.1,29,14,28.2L14,28.2z"/>
+                            <path class="st0" d="M7.3,40.2C6,39.7,5.4,38.2,6,37c0.2-0.5,0.5-1,0.7-1.5c0.6-1.2,2.1-1.7,3.4-1l0,0c1.2,0.7,1.6,2.2,1,3.4
+                                c-0.2,0.3-0.3,0.7-0.5,1C10,40.1,8.5,40.7,7.3,40.2L7.3,40.2z"/>
+                            <path class="st0" d="M3.4,53.4c-1.4-0.2-2.3-1.5-2-2.9C1.5,50,1.7,49.5,1.8,49c0.3-1.3,1.7-2.1,3-1.7l0,0c1.3,0.4,2.1,1.8,1.8,3.1
+                                c-0.1,0.4-0.2,0.7-0.2,1.1C6.1,52.8,4.8,53.7,3.4,53.4L3.4,53.4z"/>
+                            <path class="st0" d="M0,64c0-0.3,0-0.5,0-0.8c0-1.4,1.2-2.4,2.6-2.4l0,0C4,60.9,5,62.1,5,63.4c0,0.2,0,0.4,0,0.6s0,0.4,0,0.6
+                                c0,1.4-1,2.6-2.4,2.6l0,0c-1.4,0.1-2.6-1-2.6-2.4C0,64.5,0,64.3,0,64z"/>
+                            <path class="st0" d="M4.8,80.8c-1.3,0.4-2.7-0.4-3-1.7c-0.1-0.5-0.2-1.1-0.4-1.6c-0.3-1.4,0.6-2.6,2-2.9l0,0c1.4-0.2,2.6,0.7,2.9,2
+                                c0.1,0.4,0.2,0.7,0.2,1.1C6.9,79,6.1,80.4,4.8,80.8L4.8,80.8z"/>
+                            <path class="st0" d="M10,93.5c-1.2,0.7-2.7,0.2-3.4-1C6.4,92,6.2,91.5,6,91c-0.6-1.3,0-2.7,1.3-3.3l0,0c1.3-0.5,2.7,0.1,3.3,1.3
+                                c0.2,0.3,0.3,0.7,0.5,1C11.7,91.3,11.2,92.9,10,93.5L10,93.5z"/>
+                        </svg>
+
+                            <p class="benefits-me__nb-level benefits-me__graphic--nb">1</p>
+
+                            <p class="benefits-me__level benefits-me__graphic--text">Niveau</p>
+
+                        </div>
+
+                        <div class="benefits__table">
+
+                            <div class="benefits__row">
+
+                                <p class="left">Poids de papier collecté</p>
+                                <p class="right "><span class="update-grams to-update">0.3</span> kg</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Poids de papier recyclé généré</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update paper-recycled">0</span> kg</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Litres d’eau préservés</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update water">0</span> L</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Énergie économisée</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update energy">0</span> kW</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Pollution de l’air</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update pollution">1</span>%</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="screen-flower__table-graines table-graines">
+
+                        <div class="table-graines__title">
+
+                            <p>Mes graines</p>
+
+                        </div>
+
+                        <div class="table-graines__container-flower">
+
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/coquelicot.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity coquelicot">x<span class="to-update">8</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>de mai à juin</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Coquelicot</p>
+
+                            </div>
+
+
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/petunia.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity petunia">x<span class="to-update">3</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>de mars à avril</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Pétunias</p>
+
+                            </div>
+
+
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/myosotis.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity myosotis">x<span class="to-update">2</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>de mars à mai</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Myosotis</p>
+
+                            </div>
+
+
+
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/iberis.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity iberis">x<span class="to-update">1</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>de mai à oct.</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Iberis</p>
+
+                            </div>
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/melisse.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity melisse">x<span class="to-update">1</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>toute l'année</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Mélisse</p>
+
+                            </div>
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/salade.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity salade">x<span class="to-update">1</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>avril à juin</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Salade</p>
+
+                            </div>
+
+
+
+
+                            <div class="table-graines__flower">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch plante-screen-touch">
+
+                                        <img src="img/flowers/godetia.svg" alt="image illustration areka" class="table-graines__illu"/>
+                                        <p class="table-graines__quantity godetia">x<span class="to-update">1</span></p>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--water plante-screen-touch">
+
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+                                        <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--sun plante-screen-touch">
+
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                        <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+                                    </div>
+
+                                    <div class="table-graines__touch table-graines__touch--month plante-screen-touch">
+
+                                        <p>toute l'année</p>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Godetia</p>
+
+                            </div>
+
+
+
+                            <div class="table-graines__flower table-graines__flower--off">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch">
+
+                                        <img src="img/flowers/ageratum.svg" alt="image illustration areka" class="table-graines__illu"/>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Ageratum</p>
+
+                            </div>
+
+
+
+                            <div class="table-graines__flower table-graines__flower--off">
+
+                                <div class="table-graines__container-touch">
+
+                                    <div class="table-graines__touch">
+
+                                        <img src="img/flowers/gypsophyla.svg" alt="image illustration areka" class="table-graines__illu"/>
+
+                                    </div>
+
+                                </div>
+
+                                <p class="table-graines__name">Gypsophyla</p>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="screen-flower__benefits-planet benefits-planet">
+
+                        <div class="benefits-planet__title">
+
+                            <p class="title">La communauté Areka</p>
+                            <p class="text">D’autres personnes utilisent Areka.<br/>Voici l’impact de vos actions</p>
+
+                        </div>
+
+                        <div class="benefits__table">
+
+                            <div class="benefits__row">
+
+                                <p class="left">Poids de papier collecté</p>
+                                <p class="right "><span class="to-update update-grams">1987</span> kg</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Poids de papier recyclé généré</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update paper-recycled">1788.3</span> kg</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Litres d’eau préservés</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update water">113K</span> L</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Énergie économisée</p>
+                                <p class="right bt-open-pop-up-infos"><span class="to-update energy">4967.5</span> kW</p>
+
+                            </div>
+
+                            <div class="benefits__row">
+
+                                <p class="left">Pollution de l’air</p>
+                                <p class="right bt-open-pop-up-infos">-<span class="to-update pollution">89</span>%</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="screen-flower__socials">
+
+                        <img src="img/main/socials.svg" alt="image illustration areka" class="svg">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--ECRAN MAP-->
+            <div class="page-main__screen screen-map">
+
+                <div class="screen-map__search">
+
+                    <div class="screen-map__bg-top">
+
+                        <img src="img/map/bg.svg" alt="image illustration areka"/>
+                        <img src="img/map/bg-stroke.svg" alt="image illustration areka" class="js-gyro-move"/>
+
+                    </div>
+
+
+                    <div class="screen-map__search-texts">
+
+                        <div class="screen-map__search-bar">
+
+                            <img src="img/map/search.svg" alt="image illustration areka" class="svg"/>
+                            <p>Dans quel coin ?</p>
+
+                        </div>
+
+                        <div class="screen-map__search-tips">
+
+                            <p>Choisis ton commerçant pour récupérer ta récompense</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="screen-map__map no-swipe" id="map-container">
+
+                </div>
+
+                <div class="screen-map__boxes-container boxes-comm no-swipe">
+
+                    <div class="boxes-comm__container">
+
+                        <div class="boxes-comm__item">
+
+                            <div class="boxes-comm__top">
+
+                                <img src="img/commercants/biocbon.jpg" alt="image illustration areka"/>
+
+                            </div>
+
+                            <div class="boxes-comm__bot" data-id="comm1">
+
+                                <p class="title">Bio c'Bon</p>
+                                <p class="distance">à 600M</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="boxes-comm__item">
+
+                            <div class="boxes-comm__top">
+
+                                <img src="img/commercants/naturalia.jpg" alt="image illustration areka"/>
+
+                            </div>
+
+                            <div class="boxes-comm__bot" data-id="comm2">
+
+                                <p class="title">Naturalia</p>
+                                <p class="distance">à 1KM</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="boxes-comm__item">
+
+
+                            <div class="boxes-comm__top">
+
+                                <img src="img/commercants/canalbio.jpg" alt="image illustration areka"/>
+
+                            </div>
+
+                            <div class="boxes-comm__bot" data-id="comm3">
+
+                                <p class="title">Canal Bio</p>
+                                <p class="distance">à 1KM</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!--POP UP SCAN-->
+    <div class="scan-pop-up">
+
+        <div class="scan-pop-up__content content">
+
+            <div class="scan-pop-up__icons-container to-animate">
+
+                <div class="scan-pop-up__icon scan-pop-up__icon--bin to-animate">
+
+                    <img src="img/main/bin.svg" alt="image illustration areka" class="svg"/>
+
+                    <div class="scan-pop-up__icon-text">
+                        <p>+<span class="to-update">1</span></p>
+                    </div>
+
+                </div>
+
+                <div class="scan-pop-up__icon scan-pop-up__icon--weight to-animate">
+
+                    <img src="img/main/weight.svg" alt="image illustration areka" class="svg"/>
+
+                    <div class="scan-pop-up__icon-text">
+                        <p>+<span class="to-update grammes">00</span>g</p>
+                    </div>
+
+                </div>
+
+                <div class="scan-pop-up__icon scan-pop-up__icon--flower to-animate">
+
+                    <img src="" alt="image illustration areka" class=""/>
+
+                    <div class="scan-pop-up__icon-text">
+                        <p>x<span class="to-update">1</span></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="scan-pop-up__texts-container">
+
+                <div class="scan-pop-up__text scan-pop-up__text--bin to-animate">
+
+                    <p class="left">nouveau déchêt collecté</p>
+                    <p class="right">+1</p>
+
+                </div>
+
+                <div class="scan-pop-up__text scan-pop-up__text--weight to-animate">
+
+                    <p class="left">poids de papier déposé</p>
+                    <p class="right"><span class="to-update grammes">307</span>g</p>
+
+                </div>
+
+                <div class="scan-pop-up__text scan-pop-up__text--flower to-animate">
+
+                    <p class="left">nouvelle graine</p>
+                    <p class="right to-update flower">aaa</p>
+
+                </div>
+
+                <div class="scan-pop-up__text scan-pop-up__text--product to-animate">
+
+                    <p class="left">panier surprise</p>
+                    <p class="right">+1</p>
+
+                </div>
+
+            </div>
+
+            <div class="scan-pop-up__close to-animate">
+
+                <p class="close" data-pop-up="scan-pop-up">MERCI !</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--POP UP INFOS RECYCLAGE-->
+    <div class="infos-pop-up">
+
+        <div class="infos-pop-up__content">
+
+            <div class="infos-pop-up__close to-animate">
+
+                <img src="img/close.svg" alt="image illustration areka" class="svg close cross"/>
+
+            </div>
+
+            <div class="infos-pop-up__title to-animate">
+                <p class="title">titre</p>
+            </div>
+
+            <div class="infos-pop-up__sub-title to-animate">
+                <p class="sub-title">sous titre</p>
+            </div>
+
+            <div class="infos-pop-up__text to-animate">
+                <p class="text">texte</p>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--POP UP MAP-->
+    <div class="map-pop-up">
+
+        <div class="map-pop-up__content">
+
+            <div class="map-pop-up__close to-animate">
+
+                <img src="img/close.svg" alt="image illustration areka" class="svg close cross"/>
+
+            </div>
+
+            <div class="map-pop-up__title to-animate">
+
+                <p>Récupère ton panier surprise <br> chez l’un de tes commerçants</p>
+
+            </div>
+
+            <div class="map-pop-up__sub-title to-animate">
+
+                <p class="sub-title">Comment ça marche ?</p>
+
+            </div>
+
+            <div class="map-pop-up__block to-animate">
+
+                <img src="img/map/1.svg" alt="image illustration areka" >
+
+                <p>Choisis l’un de tes commerçants engagés contre le <span>gaspillage alimentaire</span></p>
+
+            </div>
+
+            <div class="map-pop-up__block to-animate">
+
+                <img src="img/map/2.svg" alt="image illustration areka" >
+
+                <p><span>Viens aux horaires</span> de récupération muni de ton ticket Areka</p>
+
+            </div>
+
+            <div class="map-pop-up__block to-animate">
+
+                <img src="img/map/3.svg" alt="image illustration areka" >
+
+                <p>Récupère gratuitement <span>ton panier surprise</span> parmi une sélection  de produit équitable</p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--BUGER-->
+    <div class="burger">
+
+        <div class="burger__top">
+
+            <div class="burger__bg">
+
+                <img src="img/burger/bg.svg" alt="image illustration areka">
+                <img src="img/burger/bg-stroke.svg" alt="image illustration areka" class="js-gyro-move">
+
+            </div>
+
+            <div class="burger__nav">
+
+                <div class="burger__item selected">
+                    <p>Concept</p>
+                </div>
+
+                <div class="burger__item">
+                    <p>Fleurs</p>
+                </div>
+
+                <div class="burger__item">
+                    <p>Culture</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="burger__content-container">
+
+            <div class="burger__content burger__content--concept content-concept">
+
+                <div class="content-concept__texts">
+
+                    <p class="title to-animate">Areka</p>
+
+                    <p class="intro to-animate">Areka vous permet de recycler votre papier  usagé de manière ludique et poétique tout  en vous amusant.</p>
+
+                    <p class="description to-animate">
+                        En échange de vos papiers déposés dans  nos bennes dédiées, vous gagnez des tickets graines à planter partout autour de vous.
+                        <br><br>Pour vous récompenser, vous pouvez récupérer gratuitement des paniers cadeau chez  un des commerçants partenaires d'Areka.
+                        Munissez-vous de vos papiers graines en guise  de preuve de dépôt au moment  de la récupération.
+                    </p>
+
+                    <p class="exergue to-animate">- Tous responsables  - </p>
+
+                </div>
+
+
+                <div class="content-concept__gallery">
+
+                    <img src="img/burger/video.svg" alt="" class="full to-animate">
+
+                    <div>
+                        <img src="img/burger/panier.jpg" alt="" class="to-animate">
+                        <img src="img/burger/biocoop.JPG" alt="" class="to-animate">
+                    </div>
+
+                </div>
+
+
+                <div class="content-concept__logo">
+
+                    <img src="img/burger/brand.png" alt="" class="to-animate">
+
+                    <p class="to-animate"><span>La Poste</span> aux grandes valeurs établies de communauté, de proximité et de sympathie entreprend avec nous ses nouvelles actions  dans le domaine du recyclage.  </p>
+
+                </div>
+
+            </div>
+
+            <div class="burger__content burger__content--flower content-flower">
+
+                <p class="content-flower__title to-animate">Le principe du papier graine</p>
+
+                <div class="content-flower__illu-container">
+
+                    <img src="img/burger/step1.svg" alt="" class="to-animate">
+                    <img src="img/burger/step2.svg" alt="" class="to-animate">
+                    <img src="img/burger/step3.svg" alt="" class="to-animate">
+                    <img src="img/burger/step4.svg" alt="" class="to-animate">
+
+                </div>
+
+                <div class="content-flower__texts to-animate">
+
+                    Le papier graine est un support fabriqué à 100% avec du papier recyclé contenant des graines  de fleurs. Ce support est biodégradable  et respectueux de l'environnement puisqu'il  est possible de le planter dans la terre  pour que les fleurs poussent.
+
+                </div>
+
+                <div class="content-flower__container-expli">
+
+
+                    <div class="content-flower__expli expli to-animate">
+
+                        <div class="expli__flower">
+
+                            <img src="img/flowers/coquelicot.svg" alt="image illustration areka" class="table-graines__illu"/>
+
+                        </div>
+
+                        <div class="expli__text">
+
+                            <div>
+                                <p class="name">Coquelicot</p>
+                                <p class="sub-name">Papaveraceae</p>
+                            </div>
+
+                        </div>
+
+                        <div class="expli__tips">
+
+                            <div class="expli__sun">
+
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+
+                            </div>
+
+                            <div class="expli__water">
+
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="content-flower__expli expli to-animate">
+
+                        <div class="expli__flower">
+
+                            <img src="img/flowers/petunia.svg" alt="image illustration areka" class="table-graines__illu"/>
+
+                        </div>
+
+                        <div class="expli__text">
+
+                            <div>
+                                <p class="name">Petunia</p>
+                                <p class="sub-name">Solanaceae</p>
+                            </div>
+
+                        </div>
+
+                        <div class="expli__tips">
+
+                            <div class="expli__sun">
+
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+
+                            </div>
+
+                            <div class="expli__water">
+
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="content-flower__expli expli to-animate">
+
+                        <div class="expli__flower">
+
+                            <img src="img/flowers/myosotis.svg" alt="image illustration areka" class="table-graines__illu"/>
+
+                        </div>
+
+                        <div class="expli__text">
+
+                            <div>
+                                <p class="name">Myosotis</p>
+                                <p class="sub-name">Boraginaceae</p>
+                            </div>
+
+                        </div>
+
+                        <div class="expli__tips">
+
+                            <div class="expli__sun">
+
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+                                <img src="img/main/sun.svg" alt="image illustration areka"/>
+
+
+                            </div>
+
+                            <div class="expli__water">
+
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+                                <img src="img/main/water.svg" alt="image illustration areka"/>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="burger__content burger__content--culture content-culture">
+
+                <p class="content-culture__title to-animate">Le saviez-vous ? </p>
+
+                <div class="content-culture__infos to-animate">
+                    <p>Le recyclage d'une tonne de papier permet d'épargner 17 arbres.</p>
+                </div>
+
+                <div class="content-culture__infos to-animate">
+                    <p>Un foyer jette en moyenne 13,000 morceaux  de papier chaque année. La plupart sont  des emballages et du courrier indésirable.</p>
+                </div>
+
+                <div class="content-culture__infos to-animate">
+                    <p>Le recyclage d'une tonne de papier permet d'épargner assez d'énergie pour alimenter  une maison moyenne pendant 5 mois</p>
+                </div>
+
+                <div class="content-culture__infos content-culture__infos--img to-animate">
+
+                    <img src="img/burger/fleur2.svg" alt="">
+
+                    <p>Oups, je rétrécie... Sans ton aide je risque  de défraîchir. Viens vite déposer du papier dans la benne pour me sauver.</p>
+
+                </div>
+
+                <div class="content-culture__infos content-culture__infos--img to-animate">
+
+                    <img src="img/burger/fleur1.svg" alt="">
+
+                    <p>Déjà 20 jours qu’on ne s’est pas vu !<br>
+                        Mes fleurs commencent à se faner…</p>
+
+                </div>
+
+                <div class="content-culture__infos to-animate">
+
+                    <p>Le recyclage du papier génère 74% d’air  et 35 % d’eau pollués en moins</p>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <!--COMMERCANT 1 : BIO COOP-->
+    <div class="commercant" id="comm1">
+
+        <div class="tpl-comm page-wrapper page-comm">
+
+            <div class="page-comm__photo">
+
+                <div class="close">
+
+                    <img src="img/close.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+                <img src="img/commercants/biocbon.jpg" alt="commercant 1" class="devanture">
+
+                <div class="page-comm__like">
+
+                    <img src="img/commercants/heart.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+            </div>
+
+            <div class="page-comm__wrapper">
+
+                <div class="page-comm__title to-animate">
+
+                    <p class="title">Bio c’Bon</p>
+
+                    <p class="distance">à 600 M</p>
+
+                </div>
+
+                <div class="page-comm__texts to-animate">
+
+                    <p class="sub-title">Description</p>
+
+                    <p class="content">
+                        Biocbon s’engage contre le gaspillage
+                        et vous accueille pour sauver ses invendus !
+                        Venez récupérer un panier surprise pouvant
+                        contenir des produits frais, des fruits et légumes,
+                        en fonction des invendus du jour.
+                    </p>
+
+                    <p class="exergue">RDV à l’accueil pour récupérer votre panier.</p>
+
+                </div>
+
+                <div class="page-comm__infos to-animate">
+
+                    <img src="img/commercants/comm1-map.png" alt="image illustration areka">
+
+                </div>
+
+
+                <div class="page-comm__web to-animate">
+
+                    <p>Rendez-vous sur : <span>www.biocbon.fr</span></p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!--COMMERCANT 2 : NATURALIA-->
+    <div class="commercant" id="comm2">
+
+        <div class="tpl-comm page-wrapper page-comm">
+
+            <div class="page-comm__photo">
+
+                <div class="close">
+
+                    <img src="img/close.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+                <img src="img/commercants/naturalia.jpg" alt="commercant 1" class="devanture">
+
+                <div class="page-comm__like">
+
+                    <img src="img/commercants/heart.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+            </div>
+
+            <div class="page-comm__wrapper ">
+
+                <div class="page-comm__title to-animate">
+
+                    <p class="title">Naturalia</p>
+
+                    <p class="distance">à 1 KM</p>
+
+                </div>
+
+                <div class="page-comm__texts to-animate">
+
+                    <p class="sub-title">Description</p>
+
+                    <p class="content">
+                        Naturalia s’engage contre le gaspillage
+                        et vous accueille pour sauver ses invendus !
+                        Venez récupérer un panier surprise pouvant
+                        contenir des produits frais, des fruits et légumes,
+                        en fonction des invendus du jour.
+                    </p>
+
+                    <p class="exergue">RDV à l’accueil pour récupérer votre panier.</p>
+
+                </div>
+
+                <div class="page-comm__infos to-animate">
+
+                    <img src="img/commercants/comm1-map.png" alt="image illustration areka">
+
+                </div>
+
+
+                <div class="page-comm__web to-animate">
+
+                    <p>Rendez-vous sur : <span>www.naturalia.fr</span></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--COMMERCANT 3 : CANAL BIO-->
+    <div class="commercant" id="comm3">
+
+        <div class="tpl-comm page-wrapper page-comm">
+
+            <div class="page-comm__photo">
+
+                <div class="close">
+
+                    <img src="img/close.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+                <img src="img/commercants/canalbio.jpg" alt="commercant 1" class="devanture">
+
+                <div class="page-comm__like">
+
+                    <img src="img/commercants/heart.svg" alt="image illustration areka" class="svg">
+
+                </div>
+
+            </div>
+
+            <div class="page-comm__wrapper">
+
+                <div class="page-comm__title to-animate">
+
+                    <p class="title">Canal Bio</p>
+
+                    <p class="distance">à 1 KM</p>
+
+                </div>
+
+                <div class="page-comm__texts to-animate">
+
+                    <p class="sub-title">Description</p>
+
+                    <p class="content">
+                        Canal Bio s’engage contre le gaspillage
+                        et vous accueille pour sauver ses invendus !
+                        Venez récupérer un panier surprise pouvant
+                        contenir des produits frais, des fruits et légumes,
+                        en fonction des invendus du jour.
+                    </p>
+
+                    <p class="exergue">RDV à l’accueil pour récupérer votre panier.</p>
+
+                </div>
+
+                <div class="page-comm__infos to-animate">
+
+                    <img src="img/commercants/comm1-map.png" alt="image illustration areka">
+
+                </div>
+
+
+                <div class="page-comm__web to-animate">
+
+                    <p>Rendez-vous sur : <span>www.canal-bio.fr</span></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqNzVTtRnaQOjQPj8lU_-prv_pQbug8s"></script>
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="js/lib.min.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+
+</body>
+</html>
